@@ -1,0 +1,45 @@
+{
+  "name": "lambdasec-skills",
+  "owner": {
+    "name": "lambdasec",
+    "email": "lambdasec@okyasoft.com"
+  },
+  "metadata": {
+    "description": "Agent Skills for security scanning, text classification, reasoning analysis and local models on Apple Silicon",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "frame-security-scan",
+      "description": "Scan Python code with the open-source Frame CLI, triage findings, generate and verify fixes, and re-scan",
+      "source": "./",
+      "strict": false,
+      "category": "security",
+      "skills": ["./skills/frame-security-scan"]
+    },
+    {
+      "name": "adaptive-classifier",
+      "description": "Build, update and evaluate text classifiers that learn new examples and classes without retraining from scratch",
+      "source": "./",
+      "strict": false,
+      "category": "development",
+      "skills": ["./skills/adaptive-classifier"]
+    },
+    {
+      "name": "pts-pivotal-token-search",
+      "description": "Find the tokens, sentences and latent concepts that change whether a language model solves a task, with PTS",
+      "source": "./",
+      "strict": false,
+      "category": "development",
+      "skills": ["./skills/pts-pivotal-token-search"]
+    },
+    {
+      "name": "optiq-local-models",
+      "description": "Serve a quantized language model on an Apple Silicon Mac with mlx-optiq and an OpenAI-compatible endpoint",
+      "source": "./",
+      "strict": false,
+      "category": "development",
+      "skills": ["./skills/optiq-local-models"]
+    }
+  ]
+}
