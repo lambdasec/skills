@@ -1,6 +1,6 @@
 # lambdasec skills
 
-Agent Skills for four open-source tools. Each skill is a folder with a `SKILL.md` in the open [Agent Skills](https://agentskills.io) format, so it works in any agent that reads skills: Claude Code, Codex, Cursor, OpenCode, Gemini CLI, GitHub Copilot and others.
+Agent Skills for four tools: three open-source projects (Frame, adaptive-classifier and PTS) and the mlx-optiq package for Apple Silicon. Each skill is a folder with a `SKILL.md` in the open [Agent Skills](https://agentskills.io) format, so it works in any agent that reads skills: Claude Code, Codex, Cursor, OpenCode, Gemini CLI, GitHub Copilot and others.
 
 | Skill | What it does | Tool |
 |---|---|---|
