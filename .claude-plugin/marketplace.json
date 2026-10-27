@@ -6,16 +6,26 @@
   },
   "metadata": {
     "description": "Agent Skills for security scanning, text classification, reasoning analysis and local models on Apple Silicon",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "frame-security-scan",
-      "description": "Scan Python code with the open-source Frame CLI, triage findings, generate and verify fixes, and re-scan",
+      "description": "Scan Python, JavaScript/TypeScript, Java, C# and C/C++ code with the open-source Frame CLI, triage findings, generate and verify fixes, and re-scan. Also connects the frame MCP server (uvx frame-mcp)",
       "source": "./",
       "strict": false,
       "category": "security",
-      "skills": ["./skills/frame-security-scan"]
+      "skills": [
+        "./skills/frame-security-scan"
+      ],
+      "mcpServers": {
+        "frame": {
+          "command": "uvx",
+          "args": [
+            "frame-mcp"
+          ]
+        }
+      }
     },
     {
       "name": "adaptive-classifier",
@@ -23,7 +33,9 @@
       "source": "./",
       "strict": false,
       "category": "development",
-      "skills": ["./skills/adaptive-classifier"]
+      "skills": [
+        "./skills/adaptive-classifier"
+      ]
     },
     {
       "name": "pts-pivotal-token-search",
@@ -31,7 +43,9 @@
       "source": "./",
       "strict": false,
       "category": "development",
-      "skills": ["./skills/pts-pivotal-token-search"]
+      "skills": [
+        "./skills/pts-pivotal-token-search"
+      ]
     },
     {
       "name": "optiq-local-models",
@@ -39,7 +53,9 @@
       "source": "./",
       "strict": false,
       "category": "development",
-      "skills": ["./skills/optiq-local-models"]
+      "skills": [
+        "./skills/optiq-local-models"
+      ]
     }
   ]
 }
