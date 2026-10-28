@@ -5,8 +5,8 @@
     "email": "lambdasec@okyasoft.com"
   },
   "metadata": {
-    "description": "Agent Skills for security scanning, text classification, reasoning analysis and local models on Apple Silicon",
-    "version": "1.1.0"
+    "description": "Agent Skills for security scanning, text classification, reasoning analysis, local models on Apple Silicon, and prompt hill-climbing",
+    "version": "1.2.0"
   },
   "plugins": [
     {
@@ -55,6 +55,16 @@
       "category": "development",
       "skills": [
         "./skills/optiq-local-models"
+      ]
+    },
+    {
+      "name": "rsi-skill",
+      "description": "Evaluate a prompt against test cases and hill-climb it to a measurably better version with any open model (OptiQ Cloud, a local optiq serve, or any OpenAI-compatible API)",
+      "source": "./",
+      "strict": false,
+      "category": "development",
+      "skills": [
+        "./skills/rsi-skill"
       ]
     }
   ]
