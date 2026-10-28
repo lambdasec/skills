@@ -26,6 +26,16 @@ As a Claude Code plugin marketplace:
 /plugin install frame-security-scan@lambdasec-skills
 ```
 
+Or install any one skill in a single step (Claude Code 2.1.275 or later):
+
+```
+/plugin install frame-security-scan --marketplace lambdasec/skills
+/plugin install adaptive-classifier --marketplace lambdasec/skills
+/plugin install pts-pivotal-token-search --marketplace lambdasec/skills
+/plugin install optiq-local-models --marketplace lambdasec/skills
+/plugin install rsi-skill --marketplace lambdasec/skills
+```
+
 The `frame-security-scan` plugin also connects the [frame MCP server](https://github.com/lambdasec/frame-mcp) (`uvx frame-mcp`, needs [uv](https://docs.astral.sh/uv/)), so Frame's scan, verify and fix are available as tools. Outside Claude Code: `claude mcp add frame -- uvx frame-mcp` or `uvx frame-mcp` in any MCP client.
 
 Or copy a folder from `skills/` into your agent's skills directory, such as `.claude/skills/` or `.agents/skills/`.

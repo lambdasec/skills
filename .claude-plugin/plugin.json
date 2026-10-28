@@ -1,0 +1,10 @@
+{
+  "name": "lambdasec-skills",
+  "version": "1.2.0",
+  "description": "Agent Skills for security scanning (Frame), adaptive text classification, pivotal-token analysis (PTS), local models on Apple Silicon (mlx-optiq), and prompt hill-climbing with any open model (rsi-skill).",
+  "author": { "name": "lambdasec", "email": "lambdasec@okyasoft.com" },
+  "homepage": "https://github.com/lambdasec/skills",
+  "repository": "https://github.com/lambdasec/skills",
+  "license": "Apache-2.0",
+  "keywords": ["agent-skills", "security", "classification", "interpretability", "mlx", "evals", "prompt-optimization"]
+}
