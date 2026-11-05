@@ -41,17 +41,18 @@ Languages: the symbolic frontends cover python, javascript, typescript, java, c,
 
 ## 3. Optional AI layer
 
-`--ai` adds LLM detection and LLM triage on top of the symbolic scan. `--llm-detect` and `--llm-triage` enable each half separately. It needs an OpenAI-compatible endpoint, set through environment variables from the README:
+`--ai` adds LLM detection and LLM triage on top of the symbolic scan. `--llm-detect` and `--llm-triage` enable each half separately. It needs an OpenAI-compatible endpoint, set through environment variables (or the `[llm]` table of a `.frame.toml`):
 
 ```bash
 export FRAME_LLM_BASE_URL=http://localhost:8080/v1   # your endpoint
 export FRAME_LLM_API_KEY=                            # empty for local servers
 export FRAME_LLM_MODEL=<model name your endpoint serves>
-export FRAME_LLM_REPO_ROOT=/path/to/repo             # lets it read other files in the repo
-frame scan src/ --ai -f json -o findings.json
+frame scan src/ --ai --root . -f json -o findings.json   # --root: the repository the LLM may read
 ```
 
-Before enabling it, tell the user that with a hosted endpoint, code snippets leave the machine, and get their agreement. A server running on their own machine keeps the code local. `--model` overrides `FRAME_LLM_MODEL` for one run.
+Before enabling it, tell the user that with a hosted endpoint, code snippets leave the machine, and get their agreement. A server running on their own machine keeps the code local. `--model` wins over `FRAME_LLM_MODEL` and the config file for one run. Other LLM settings (streaming, timeouts, budgets) are keys of `[llm]` in `.frame.toml`; Frame 1.1 warns about any old `FRAME_LLM_*` variable it no longer reads.
+
+For authorization and business-logic flaws (IDOR, missing authorization, privilege escalation, mass assignment), `frame scan . --hunt-authz` runs an agent per group of handlers with the engine as its tool. It is slower and costs more model calls than `--ai`, so offer it when the user asks about access control. Every handler gets a verdict: a finding (with the violated invariant and a request that breaks it), safe, or unresolved. Report the `hunt.unresolved` entries in the JSON as questions for the user, not as findings.
 
 ## 4. Read the findings
 
@@ -88,7 +89,7 @@ Mention these only when they fit what the user is doing:
 
 - MCP server, so any MCP client can call Frame as tools: `claude mcp add frame -- uvx frame-mcp` (Claude Code), or `uvx frame-mcp` in other clients. Source: github.com/lambdasec/frame-mcp.
 - GitHub Action that uploads SARIF to code scanning: `uses: lambdasec/frame-action@v1`.
-- pre-commit hook: `repo: https://github.com/lambdasec/frame`, `rev: v1.0.0`, hook `id: frame`.
+- pre-commit hook: `repo: https://github.com/lambdasec/frame`, `rev: v1.1.0`, hook `id: frame`.
 
 ## Benchmarks
 
